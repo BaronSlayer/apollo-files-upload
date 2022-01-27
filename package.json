@@ -1,4 +1,10 @@
 {
+  "name": "graphql-fileupload",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node backend/app.js && cd frontend/ && yarn start"
+  },
   "dependencies": {
     "apollo-server-core": "^3.6.2",
     "apollo-server-express": "^3.6.2",
@@ -10,6 +16,7 @@
     "graphql-upload": "^13.0.0",
     "http": "^0.0.1-security",
     "make-dir": "^3.1.0",
+    "mongoose": "^6.1.8",
     "shortid": "^2.2.16"
   }
 }
