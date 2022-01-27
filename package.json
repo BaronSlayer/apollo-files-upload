@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "apollo-server-core": "^3.6.2",
+    "apollo-server-express": "^3.6.2",
+    "apollo-upload-client": "^17.0.0",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.3.0",
+    "graphql-upload": "^13.0.0",
+    "http": "^0.0.1-security",
+    "make-dir": "^3.1.0",
+    "shortid": "^2.2.16"
+  }
+}
