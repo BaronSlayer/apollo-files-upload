@@ -1,23 +1,14 @@
 const graphQLUpload = require("graphql-upload");
-const fs = require("fs");
 
-const UPLOAD_DIRECTORY_URL = require("../../config/UPLOAD_DIRECTORY_URL");
 const storeUpload = require("./helpers/storeUpload");
+const File = require("../../models/file");
 
 module.exports = {
   Upload: graphQLUpload, //Resolves the `Upload` scalar
   Query: {
-    // Retrieves files in our local filesystem
+    // Retrieve metadata of all files in our MongoDB database.
     uploads: async () => {
-      return (await fs.promises.readdir(UPLOAD_DIRECTORY_URL)).map(
-        (filename) => {
-          return {
-            filename,
-            mimetype: "",
-            encoding: "",
-          };
-        }
-      );
+      return (await File.find()).map((file) => file._doc);
     },
   },
   Mutation: {

@@ -4,6 +4,7 @@ const http = require("http");
 const { ApolloServer } = require("apollo-server-express");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
 const { graphqlUploadExpress } = require("graphql-upload");
+const mongoose = require("mongoose");
 require("dotenv").config(); //configure environment variables as specified in `.env`
 
 const UPLOAD_DIRECTORY_URL = require("./config/UPLOAD_DIRECTORY_URL.js");
@@ -53,6 +54,9 @@ async function startServer() {
     app: app,
     path: "/graphql",
   });
+
+  // Connect to MongoDB
+  await mongoose.connect(`${process.env.MONGO_URL}`);
 
   // Start the server
   await httpServer.listen({ port: process.env.PORT });
